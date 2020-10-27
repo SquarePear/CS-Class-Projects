@@ -1,10 +1,10 @@
 /*
-*  Program name: Movie Data Formatter
-*  Author: Jeffrey Harmon
-*  Date created: Apr. 29, 2020
-*  Date last updated: Jun. 07, 2020
-*  Purpose: Format entered movie data
-*/
+ *  Program name: Movie Data Formatter
+ *  Author: Jeffrey Harmon
+ *  Date created: Apr. 29, 2020
+ *  Date last updated: Jun. 07, 2020
+ *  Purpose: Format entered movie data
+ */
 
 #include <stdlib.h>
 

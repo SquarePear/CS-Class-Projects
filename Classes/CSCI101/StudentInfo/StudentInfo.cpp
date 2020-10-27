@@ -1,10 +1,10 @@
 /*
-*  Program name: Student Info Formatter
-*  Author: Jeffrey Harmon
-*  Date created: May. 04, 2020
-*  Date last updated: May. 04, 2020
-*  Purpose: Format entered student data
-*/
+ *  Program name: Student Info Formatter
+ *  Author: Jeffrey Harmon
+ *  Date created: May. 04, 2020
+ *  Date last updated: May. 04, 2020
+ *  Purpose: Format entered student data
+ */
 
 #include <cmath>
 #include <iomanip>
