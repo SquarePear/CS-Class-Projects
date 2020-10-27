@@ -4,4 +4,4 @@ Description
 
 ## Projects
 
-1.
+1.  Cube Info ([Link](./CubeInfo/))
