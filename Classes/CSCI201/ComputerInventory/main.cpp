@@ -39,37 +39,38 @@ int main() {
 }
 
 Computer getComputer() {
-  Manufacturer manufacturer = static_cast<Manufacturer>(
-      getEnumOption(ManufacturerName, ManufacturerLength));
-  FormFactor formFactor =
-      static_cast<FormFactor>(getEnumOption(FormFactorName, FormFactorLength));
-
-  cout << "Enter the serial number: ";
-  string sN;
-  cin >> sN;
-
-  Processor processor =
-      static_cast<Processor>(getEnumOption(ProcessorName, ProcessorLength));
-
-  cout << "Enter amount of RAM (GB): ";
-  int ram;
-  cin >> ram;
-
-  StorageType storageType = static_cast<StorageType>(
-      getEnumOption(StorageTypeName, StorageTypeLength));
-
-  cout << "Enter capacity of the " << StorageTypeName[storageType] << " (GB): ";
-  int storageSize;
-  cin >> storageSize;
-
   try {
+    Manufacturer manufacturer = static_cast<Manufacturer>(
+        getEnumOption(ManufacturerName, ManufacturerLength));
+    FormFactor formFactor = static_cast<FormFactor>(
+        getEnumOption(FormFactorName, FormFactorLength));
+
+    cout << "Enter the serial number: ";
+    string sN;
+    cin >> sN;
+
+    Processor processor =
+        static_cast<Processor>(getEnumOption(ProcessorName, ProcessorLength));
+
+    cout << "Enter amount of RAM (GB): ";
+    int ram;
+    cin >> ram;
+
+    StorageType storageType = static_cast<StorageType>(
+        getEnumOption(StorageTypeName, StorageTypeLength));
+
+    cout << "Enter capacity of the " << StorageTypeName[storageType]
+         << " (GB): ";
+    int storageSize;
+    cin >> storageSize;
+
     Computer computer(manufacturer, formFactor, sN, processor, ram, storageType,
                       storageSize);
 
     return computer;
-  } catch (std::exception err) {
-    cout << err.what() << endl;
-    exit(1);
+  } catch (string err) {
+    cout << endl << err << endl;
+    exit(0);
   }
 }
 
@@ -80,8 +81,9 @@ int getEnumOption(map<int, string> nameMap, int length) {
     cout << i + 1 << ": " << nameMap[i] << endl;
 
   int choice;
+
   if (!(cin >> choice) || choice < 1 || choice > length + 1)
-    throw std::range_error("Invalid choice!");
+    throw string("Invalid choice!");
 
   return choice;
 }

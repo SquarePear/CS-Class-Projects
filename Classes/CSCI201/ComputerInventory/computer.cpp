@@ -45,7 +45,7 @@ int Computer::getStorageSize() { return storageSize; }
 // Setters
 void Computer::setRam(int ram) {
   if (ram <= 0)
-    throw std::range_error("Invalid amount of ram.");
+    throw string("Invalid amount of ram.");
 
   this->ram = ram;
 }
@@ -56,7 +56,7 @@ void Computer::setStorageType(StorageType storageType) {
 
 void Computer::setStorageSize(int storageSize) {
   if (storageSize <= 0)
-    throw std::range_error("Invalid size of storage.");
+    throw string("Invalid size of storage.");
 
   this->storageSize = storageSize;
 }
@@ -84,7 +84,7 @@ Computer::Computer(Manufacturer manufacturer, FormFactor formFactor,
   this->formFactor = formFactor;
 
   if (!(serialNumber.size() == 10))
-    throw std::range_error("Serial number must be 10 characters.");
+    throw string("Serial number must be 10 characters.");
 
   this->serialNumber = serialNumber;
 
