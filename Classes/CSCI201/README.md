@@ -9,3 +9,4 @@ Description
 3.  Date Class ([Link](./DateClass/))
 4.  Stereo Reciever with exceptions ([Link](./StereoRecieverWithExceptions/))
 5.  Quiz Scores ([Link](./QuizScores/))
+6.  Computer Inventory ([Link](./ComputerInventory/))
