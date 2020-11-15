@@ -10,3 +10,4 @@ Description
 4.  Stereo Reciever with exceptions ([Link](./StereoRecieverWithExceptions/))
 5.  Quiz Scores ([Link](./QuizScores/))
 6.  Computer Inventory ([Link](./ComputerInventory/))
+7.  Remove Duplicates ([Link](./RemoveDuplicates/))
