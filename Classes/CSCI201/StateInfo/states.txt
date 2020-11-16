@@ -1,0 +1,200 @@
+AL
+Alabama
+Kay Ivey
+Camellia
+AK
+Alaska
+Mike Dunleavy
+Forget-me-not
+AZ
+Arizona
+Doug Ducey
+Saguaro cactus blossom
+AR
+Arkansas
+Asa Hutchinson
+Apple blossom
+CA
+California
+Gavin Newsom
+California poppy
+CO
+Colorado
+Jared Polis
+Rocky Mountain columbine
+CT
+Connecticut	
+Ned Lamont
+Mountain laurel
+DE
+Delaware
+John Carney
+Peach blossom
+FL
+Florida
+Ron DeSantis
+Orange blossom
+GA
+Georgia
+Brian Kemp
+Cherokee rose
+HI
+Hawaii
+David Ige
+Hawaiian hibiscus
+ID
+Idaho
+Brad Little
+Syringa, mock orange
+IL
+Illinois
+J. B. Pritzker
+Violet
+IN
+Indiana
+Eric Holcomb
+Peony
+IA
+Iowa
+Kim Reynolds
+Wild rose
+KS
+Kansas
+Laura Kelly
+Sunflower
+KY
+Kentucky
+Andy Beshear
+Goldenrod
+LA
+Louisiana
+John Bel Edwards
+Magnolia
+ME
+Maine
+Janet Mills
+White pine cone and tassel
+MD
+Maryland
+Larry Hogan
+Black-eyed susan
+MA
+Massachusetts
+Charlie Baker
+Mayflower
+MI
+Michigan
+Gretchen Whitmer
+Apple blossom
+MN
+Minnesota
+Tim Walz
+Pink and white lady's slipper
+MS
+Mississippi
+Tate Reeves
+Magnolia
+MO
+Missouri
+Mike Parson
+Hawthorn
+MT
+Montana
+Steve Bullock
+Bitterroot
+NE
+Nebraska
+Pete Ricketts
+Goldenrod
+NV
+Nevada
+Steve Sisolak
+Sagebrush
+NH
+New Hampshire
+Chris Sununu
+Purple lilac
+NJ
+New Jersey
+Phil Murphy
+Violet
+NM
+New Mexico
+Michelle Lujan Grisham
+Yucca flower
+NY
+New York
+Andrew Cuomo
+Rose
+NC
+North Carolina
+Roy Cooper
+Flowering dogwood
+ND
+North Dakota
+Doug Burgum
+Wild prairie rose
+OH
+Ohio
+Mike DeWine
+Scarlet carnation
+OK
+Oklahoma
+Kevin Stitt
+Oklahoma rose
+OR
+Oregon
+Kate Brown
+Oregon grape
+PA
+Pennsylvania
+Tom Wolf
+Mountain laurel
+RI
+Rhode Island
+Gina Raimondo
+Violet
+SC
+South Carolina
+Henry McMaster
+Yellow jessamine
+SD
+South Dakota
+Kristi Noem
+Pasque flower
+TN
+Tennessee
+Bill Lee
+Iris
+TX
+Texas
+Greg Abbott
+Bluebonnet
+UT
+Utah
+Gary Herbert
+Sego lily
+VT
+Vermont
+Phil Scott
+Red clover
+VA
+Virginia
+Ralph Northam
+American dogwood
+WA
+Washington	
+Jay Inslee
+Coast rhododendron
+WV
+West Virginia
+Jim Justice
+Rhododendron
+WI
+Wisconsin
+Tony Evers
+Wood violet
+WY
+Wyoming
+Mark Gordon
+Indian paintbrush
