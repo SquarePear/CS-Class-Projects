@@ -1,9 +1,9 @@
 /*
- *  Program name: Quiz Scores
+ *  Program name: Computer Inventory
  *  Author: Jeffrey Harmon
- *  Date created: Nov. 9, 2020
+ *  Date created: Nov. 13, 2020
  *  Date last updated: Nov. 13, 2020
- *  Purpose: Display information about a list of quiz scores
+ *  Purpose: Display a list of computers in inventory
  */
 
 #include "computer.h"
