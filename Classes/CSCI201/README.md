@@ -11,4 +11,6 @@ Description
 5.  Quiz Scores ([Link](./QuizScores/))
 6.  Computer Inventory ([Link](./ComputerInventory/))
 7.  Remove Duplicates ([Link](./RemoveDuplicates/))
-7.  State Info ([Link](./StateInfo/))
+8.  State Info ([Link](./StateInfo/))
+9.  Soldier Manager ([Link](./SoldierManager/))
+10.  Nerf Manager ([Link](./NerfManager/))
