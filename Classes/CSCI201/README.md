@@ -1,6 +1,6 @@
 # CSCI201 - Computer Science II
 
-Description
+An ultra fast 8-week course.
 
 ## Projects
 
@@ -14,3 +14,4 @@ Description
 8.  State Info ([Link](./StateInfo/))
 9.  Soldier Manager ([Link](./SoldierManager/))
 10.  Nerf Manager ([Link](./NerfManager/))
+11.  Beverage Inheritance ([Link](./BeverageInheritance/))
