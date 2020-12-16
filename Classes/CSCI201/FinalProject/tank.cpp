@@ -9,6 +9,8 @@ int Tank::getPower() { return this->power; }
 position Tank::getPos() { return this->pos; }
 
 // Methods
+void Tank::update() {}
+
 bool Tank::move(direction dir) { return this->game->move(this, dir); }
 
 void Tank::fire(direction dir) { this->game->fire(this, dir); }
