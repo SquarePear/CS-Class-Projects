@@ -5,4 +5,4 @@ A collection of the programs I write for my computer science classes in college.
 ## Class List
 
 - [x] [CSCI101](./Classes/CSCI101/)
-- [ ] [CSCI201](./Classes/CSCI201/)
+- [x] [CSCI201](./Classes/CSCI201/)

@@ -1,6 +1,6 @@
 # CSCI201 - Computer Science II
 
-An ultra fast 8-week course.
+An ultra fast 8-week course. It definitly was much harder than CSCI101, but I think it really helped me understand some things I missed being self taught.
 
 ## Projects
 
