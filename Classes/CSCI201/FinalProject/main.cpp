@@ -18,7 +18,9 @@ using namespace std;
 int main() {
   int width, height, enemyCount;
 
+  // Initialize random
   srand(time(NULL));
+
   try {
     cout << "What size board do you want?" << endl;
     cout << "Width (4 - 10): ";
@@ -46,8 +48,10 @@ int main() {
     cout << "Adding your tank..." << endl;
     cout << "Adding " << enemyCount << " enemy tanks..." << endl;
 
+    // Create game instance
     Game game(width, height, enemyCount);
 
+    // Game loop
     while (true) {
       try {
         cout << game.display();

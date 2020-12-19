@@ -89,12 +89,19 @@ void UserTank::update() {
 void EnemyTank::update() {
   gameInfo info = this->game->getInfo(this);
 
+  bool shot = false;
+
   for (int i = 0; i < TOTAL_DIRS; i++) {
     direction currentDir = static_cast<direction>(i);
 
-    if (info.enemyInDir[currentDir])
+    if (info.enemyInDir[currentDir]) {
+      shot = true;
       return this->fire(currentDir);
+    }
   }
+
+  if (shot)
+    return;
 
   for (int i = 0; i < 10; i++) {
     direction randomDir = static_cast<direction>(rand() % TOTAL_DIRS);

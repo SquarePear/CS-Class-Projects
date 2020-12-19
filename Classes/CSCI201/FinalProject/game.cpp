@@ -1,9 +1,11 @@
 #include "game.h"
 
 int positionDistance(position a, position b) {
+  // Return bad if both are equal or both are different
   if ((a.x == b.x) != (a.y == b.y))
     return 999;
 
+  // Return the difference
   return std::abs(((a.x == b.x) ? a.x - b.x : a.y - b.y) * 1.0);
 }
 
@@ -15,6 +17,7 @@ void Game::update() {
   bool success = false;
   while (!success) {
     try {
+      // Run user tank update
       this->tank->update();
       success = true;
     } catch (const std::exception &e) {
@@ -27,6 +30,7 @@ void Game::update() {
     this->display();
   }
 
+  // Update all enemy tanks
   for (int i = 0; i < this->enemyTanks.size(); i++)
     this->enemyTanks.at(i)->update();
 }
@@ -34,11 +38,13 @@ void Game::update() {
 std::string Game::display() {
   std::stringstream disp;
 
+  // Clear the screen
   for (int i = 0; i < 10; i++)
     disp << std::endl << std::endl << std::endl << std::endl << std::endl;
 
   position maxPos{this->width * 2, this->height * 2};
 
+  // Loop through grid
   for (int y = 0; y <= maxPos.y; y++) {
     for (int x = 0; x <= maxPos.x; x++) {
       bool vertWall = false;
@@ -49,16 +55,17 @@ std::string Game::display() {
 
       disp << "  ";
 
-      if (x % 2 == 0)
+      if (x % 2 == 0) // Wall is vertical
         vertWall = true;
-      if (y % 2 == 0)
+      if (y % 2 == 0) // Wall is horizontal
         horWall = true;
 
-      if (horWall != vertWall) {
+      if (horWall != vertWall) { // Wall is seperately vertical or horizontal
         position pos{x / 2, y / 2};
 
         wall_direction dir = (horWall) ? HORIZONTAL : VERTICAL;
 
+        // Get information from wall at position
         for (int i = 0; i < this->walls.size(); i++) {
           Wall *wall = &this->walls.at(i);
 
@@ -75,6 +82,7 @@ std::string Game::display() {
         }
       }
 
+      // Get information from tank at position
       if (x % 2 == 1 && y % 2 == 1) {
         position pos{(x - 1) / 2, (y - 1) / 2};
 
@@ -87,12 +95,13 @@ std::string Game::display() {
               enemy = true;
       }
 
+      // Display grid
       if (vertWall && horWall)
         disp << '+';
-      else if (vertWall && breakable)
-        disp << '}';
-      else if (horWall && breakable)
-        disp << '~';
+      // else if (vertWall && breakable)
+      //   disp << '}';
+      // else if (horWall && breakable)
+      //   disp << '~';
       else if (vertWall)
         disp << '|';
       else if (horWall)
@@ -138,6 +147,7 @@ bool Game::canMove(Tank *tank, direction dir) {
     break;
   }
 
+  // Is there a wall between wanted movement?
   Wall *wallBetween = this->wallBetween(oldPos, newPos);
 
   return wallBetween == nullptr || !wallBetween->isActive();
@@ -171,9 +181,12 @@ void Game::fire(Tank *tank, direction dir) {
 
   Wall *closestWall = this->wallBetween(curPos, checkPos);
 
-  if (!(positionDistance(curPos, closestTank->getPos()) <
-        positionDistance(curPos, closestWall->getPos())))
+  // Is there a wall closer than the tank?
+  if (closestWall != nullptr &&
+      positionDistance(curPos, closestTank->getPos()) <
+          positionDistance(curPos, closestWall->getPos())) {
     return;
+  }
 
   closestTank->hit(tank->getPower());
 }
@@ -183,6 +196,7 @@ gameInfo Game::getInfo(Tank *tank) {
 
   position curPos = tank->getPos();
 
+  // Check for every direction
   for (int i = 0; i < TOTAL_DIRS; i++) {
     direction dir = static_cast<direction>(i);
 
@@ -350,6 +364,7 @@ Game::Game(int width, int height, int totalTanks = 4) {
 
   this->tank = new UserTank(this, position{0, 0});
 
+  // Create enemy tanks
   for (int i = 0; i < totalTanks; i++) {
     position pos{rand() % width, rand() % height};
 
@@ -374,6 +389,7 @@ Game::Game(int width, int height, int totalTanks = 4) {
     enemyTanks.push_back(new EnemyTank(this, pos));
   }
 
+  // Create walls
   for (int x = 0; x <= width; x++) {
     for (int y = 0; y <= height; y++) {
       bool active = true;

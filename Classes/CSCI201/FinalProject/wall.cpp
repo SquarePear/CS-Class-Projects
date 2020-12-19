@@ -11,6 +11,7 @@ bool Wall::isBreakable() { return this->breakable; }
 
 // Methods
 void Wall::hit() {
+  // Disable breakable wall if hit
   if (this->isBreakable() && this->isActive())
     this->active = false;
 }
