@@ -36,7 +36,12 @@ bool Tank::move(direction dir) {
 
 void Tank::fire(direction dir) { this->game->fire(this, dir); }
 
-void Tank::hit(int power) { this->health -= power; }
+void Tank::hit(int power) {
+  this->health -= power;
+
+  if (this->health <= 0)
+    delete this;
+}
 
 // Constructors
 Tank::Tank(Game *game, position pos) {
@@ -72,9 +77,6 @@ void UserTank::update() {
 
   direction dir = static_cast<direction>(dirChoice - 1);
 
-  if (dir == EAST)
-    std::cout << "EASTBABY" << std::endl;
-
   if (choice == 1) {
     if (!this->move(dir))
       throw std::out_of_range("Invalid direction!");
@@ -94,11 +96,10 @@ void EnemyTank::update() {
       return this->fire(currentDir);
   }
 
-  bool success = false;
-
-  do {
+  for (int i = 0; i < 10; i++) {
     direction randomDir = static_cast<direction>(rand() % TOTAL_DIRS);
 
-    success = this->move(randomDir);
-  } while (!success);
+    if (this->move(randomDir))
+      return;
+  };
 }

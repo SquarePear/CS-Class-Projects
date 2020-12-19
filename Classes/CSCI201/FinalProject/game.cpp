@@ -20,6 +20,11 @@ void Game::update() {
     } catch (const std::exception &e) {
       std::cout << e.what() << std::endl << std::endl;
     }
+
+    std::cin.clear();
+    std::cin.ignore(1000, '\n');
+
+    this->display();
   }
 
   for (int i = 0; i < this->enemyTanks.size(); i++)
@@ -111,8 +116,6 @@ std::string Game::display() {
 }
 
 bool Game::canMove(Tank *tank, direction dir) {
-  // TODO: Validate and move tank
-
   position oldPos = tank->getPos();
   position newPos;
 
@@ -137,15 +140,10 @@ bool Game::canMove(Tank *tank, direction dir) {
 
   Wall *wallBetween = this->wallBetween(oldPos, newPos);
 
-  if (!wallBetween->isActive())
-    return false;
-
-  return true;
+  return wallBetween == nullptr || !wallBetween->isActive();
 }
 
 void Game::fire(Tank *tank, direction dir) {
-  // TODO: Fire projectile and check for damage
-
   position curPos = tank->getPos();
 
   position checkPos;
@@ -161,8 +159,8 @@ void Game::fire(Tank *tank, direction dir) {
     checkPos = {curPos.x, this->height};
     break;
   case WEST:
-    checkPos = {0, curPos.y};
   default:
+    checkPos = {0, curPos.y};
     break;
   }
 
@@ -181,7 +179,6 @@ void Game::fire(Tank *tank, direction dir) {
 }
 
 gameInfo Game::getInfo(Tank *tank) {
-  // TODO: Process and return gameInfo object
   gameInfo info;
 
   position curPos = tank->getPos();
@@ -224,21 +221,14 @@ gameInfo Game::getInfo(Tank *tank) {
 }
 
 Wall *Game::wallBetween(position a, position b) {
-  std::cout << "Wall: " << a.x << ", " << a.y << " | " << b.x << ", " << b.y
-            << std::endl;
-
   if (!((a.x == b.x) != (a.y == b.y)))
     return nullptr;
 
-  std::cout << "test wall" << std::endl;
-
   position pos{a.x, a.y};
-  std::cout << "test wall2" << std::endl;
 
   int dir = 1, start = 1, end = 1;
 
   if (a.y == b.y) {
-    std::cout << "test wall x" << std::endl;
     end = b.x - a.x;
 
     if (a.x > b.x) {
@@ -248,8 +238,6 @@ Wall *Game::wallBetween(position a, position b) {
     }
 
     for (int xMod = start; xMod <= end; xMod++) {
-      std::cout << "test wall " << start << " | " << end << std::endl;
-
       pos.x = a.x + xMod * dir;
 
       for (int i = 0; i < this->walls.size(); i++) {
@@ -258,14 +246,11 @@ Wall *Game::wallBetween(position a, position b) {
         if (wall->getDir() != VERTICAL)
           continue;
 
-        if (wall->getPos().x == pos.x && wall->getPos().y == pos.y &&
-            wall->isActive())
+        if (wall->getPos().x == pos.x && wall->getPos().y == pos.y)
           return wall;
       }
     }
   } else if (a.x == b.x) {
-
-    std::cout << "test wall y" << std::endl;
     end = b.y - a.y;
     if (a.y > b.y) {
       dir = -1;
@@ -289,16 +274,11 @@ Wall *Game::wallBetween(position a, position b) {
   }
 
   return nullptr;
-};
+}
 
 Tank *Game::tankBetween(position a, position b) {
-  std::cout << "Tank: " << a.x << ", " << a.y << " | " << b.x << ", " << b.y
-            << std::endl;
-
   if (!((a.x == b.x) != (a.y == b.y)))
     return nullptr;
-
-  std::cout << "test tank" << std::endl;
 
   position pos{a.x, a.y};
 
@@ -350,7 +330,7 @@ Tank *Game::tankBetween(position a, position b) {
   }
 
   return nullptr;
-};
+}
 
 // Overrides
 Game::~Game() {
@@ -361,7 +341,7 @@ Game::~Game() {
 
   for (; enemyTankIt != enemyTankEnd; enemyTankIt++)
     delete *enemyTankIt;
-};
+}
 
 // Constructors
 Game::Game(int width, int height, int totalTanks = 4) {

@@ -19,23 +19,44 @@ int main() {
   int width, height, enemyCount;
 
   srand(time(NULL));
+  try {
+    cout << "What size board do you want?" << endl;
+    cout << "Width (4 - 10): ";
+    cin >> width;
 
-  cout << "What size board do you want?" << endl;
-  cout << "Width (2 - 3): ";
-  cin >> width;
-  cout << "Height (2 - 3): ";
-  cin >> height;
-  cout << "How many enemies do you want? (1 - 2): ";
-  cin >> enemyCount;
+    if (width > 10 || width < 4)
+      throw std::out_of_range("Width must be between 4 and 10!");
 
-  cout << "Creating " << width << "x" << height << " board..." << endl;
-  cout << "Adding your tank..." << endl;
-  cout << "Adding " << enemyCount << " enemy tanks..." << endl;
+    cout << "Height (4 - 10): ";
+    cin >> height;
 
-  Game game(width, height, enemyCount);
+    if (height > 10 || height < 4)
+      throw std::out_of_range("Height must be between 4 and 10!");
 
-  while (true) {
-    cout << game.display();
-    game.update();
+    cout << "How many enemies do you want? (1 - 5): ";
+    cin >> enemyCount;
+
+    if (enemyCount < 1)
+      throw std::out_of_range("You need at least one enemy!");
+
+    if (enemyCount > 5)
+      throw std::out_of_range("You can't have more than 5 enemies!");
+
+    cout << "Creating " << width << "x" << height << " board..." << endl;
+    cout << "Adding your tank..." << endl;
+    cout << "Adding " << enemyCount << " enemy tanks..." << endl;
+
+    Game game(width, height, enemyCount);
+
+    while (true) {
+      try {
+        cout << game.display();
+        game.update();
+      } catch (const std::exception &e) {
+        cout << e.what() << endl;
+      }
+    }
+  } catch (const std::exception &e) {
+    cout << e.what() << endl;
   }
 }
