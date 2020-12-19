@@ -2,15 +2,15 @@
 
 #include "game.h"
 #include "helpers.h"
-#include "iostream"
+#include <iostream>
 
 class Game;
 
 class Tank {
 protected:
   // Properties
-  unsigned int health = 1;
-  unsigned int power = 1;
+  int health = 1;
+  int power = 1;
   position pos;
   Game *game;
 
@@ -24,7 +24,7 @@ public:
   virtual void update();
   bool move(direction);
   void fire(direction);
-  void hit(unsigned int);
+  void hit(int);
 
   // Constructors
   Tank(Game *, position);
@@ -33,7 +33,7 @@ public:
 class UserTank : public Tank {
 protected:
   // Properties
-  unsigned int health = 2;
+  int health = 2;
 
 public:
   // Methods
@@ -46,7 +46,7 @@ public:
 class EnemyTank : public Tank {
 protected:
   // Properties
-  unsigned int health = 1;
+  int health = 1;
 
 public:
   // Methods

@@ -3,11 +3,12 @@
 #include "helpers.h"
 #include "tank.h"
 #include "wall.h"
+#include <cmath>
+#include <iostream>
 #include <sstream>
+#include <stdlib.h>
+#include <string>
 #include <vector>
-
-using std::stringstream;
-using std::vector;
 
 class Tank;
 class UserTank;
@@ -16,28 +17,30 @@ class EnemyTank;
 class Game {
 protected:
   // Properties
-  unsigned int score;
-  unsigned int height;
-  unsigned int width;
+  int score;
+  int height;
+  int width;
   bool phase;
   UserTank *tank;
-  vector<EnemyTank *> enemyTanks;
-  vector<Wall> walls;
+  std::vector<EnemyTank *> enemyTanks;
+  std::vector<Wall> walls;
 
 public:
   // Getters
-  unsigned int getScore();
+  int getScore();
 
   // Methods
   void update();
-  stringstream display();
-  bool move(Tank *, direction);
+  std::string display();
+  bool canMove(Tank *, direction);
   void fire(Tank *, direction);
   gameInfo getInfo(Tank *);
+  Wall *wallBetween(position, position);
+  Tank *tankBetween(position, position);
 
   // Overrides
   ~Game();
 
   // Constructors
-  Game(unsigned int, unsigned int, unsigned int);
+  Game(int, int, int);
 };
