@@ -26,6 +26,7 @@ int main() {
 
     try {
       state = getState();
+      states.push_back(state);
 
       if (states.size() >= 50) {
         sentinel = 'n';
@@ -40,7 +41,6 @@ int main() {
       cin.ignore(1000, '\n');
     }
 
-    states.push_back(state);
   } while (tolower(sentinel) == 'y');
 
   cout << endl << "Here is the list of states you added:" << endl << endl;
