@@ -2,7 +2,8 @@
 
 ## Projects
 
-- [StateInfo](./StateInfo/)
+- [State Info](./StateInfo/)
 - [Television](./Television/)
+- [Television Dynamic Array](./TelevisionDynamicArray/)
 
 ## Final Project
