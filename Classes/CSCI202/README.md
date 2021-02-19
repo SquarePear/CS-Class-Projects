@@ -6,5 +6,6 @@
 - [Television](./Television/)
 - [Television Dynamic Array](./TelevisionDynamicArray/)
 - [Customer Linked List](./TelevisionDynamicArray/)
+- [Binary Stack](./BinaryStack/)
 
 ## Final Project
