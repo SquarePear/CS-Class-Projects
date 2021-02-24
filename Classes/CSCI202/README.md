@@ -8,5 +8,6 @@
 - [Customer Linked List](./TelevisionDynamicArray/)
 - [Binary Stack](./BinaryStack/)
 - [Copy Stack](./CopyStack/)
+- [Palindrome Queue](./PalindromeQueue/)
 
 ## Final Project
