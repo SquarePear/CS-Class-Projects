@@ -10,5 +10,6 @@
 - [Copy Stack](./CopyStack/)
 - [Palindrome Queue](./PalindromeQueue/)
 - [Shipping Queue](./ShippingQueue/)
+- [Pizza Shop](./PizzaShop/)
 
 ## Final Project
