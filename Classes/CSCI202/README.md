@@ -9,5 +9,6 @@
 - [Binary Stack](./BinaryStack/)
 - [Copy Stack](./CopyStack/)
 - [Palindrome Queue](./PalindromeQueue/)
+- [Shipping Queue](./ShippingQueue/)
 
 ## Final Project
