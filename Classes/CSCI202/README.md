@@ -12,5 +12,6 @@
 - [Shipping Queue](./ShippingQueue/)
 - [Pizza Shop](./PizzaShop/)
 - [Selection Sort](./SelectionSort/)
+- [Insertion Sort](./InsertionSort/)
 
 ## Final Project
