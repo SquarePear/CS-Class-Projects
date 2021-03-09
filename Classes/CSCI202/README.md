@@ -11,5 +11,6 @@
 - [Palindrome Queue](./PalindromeQueue/)
 - [Shipping Queue](./ShippingQueue/)
 - [Pizza Shop](./PizzaShop/)
+- [Selection Sort](./SelectionSort/)
 
 ## Final Project
