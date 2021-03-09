@@ -13,5 +13,6 @@
 - [Pizza Shop](./PizzaShop/)
 - [Selection Sort](./SelectionSort/)
 - [Insertion Sort](./InsertionSort/)
+- [Merge Sort](./MergeSort/)
 
 ## Final Project
