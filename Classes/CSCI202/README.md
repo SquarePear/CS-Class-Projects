@@ -14,5 +14,6 @@
 - [Selection Sort](./SelectionSort/)
 - [Insertion Sort](./InsertionSort/)
 - [Merge Sort](./MergeSort/)
+- [Recursive Reduce](./RecursiveReduce/)
 
 ## Final Project
