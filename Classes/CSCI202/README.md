@@ -15,5 +15,6 @@
 - [Insertion Sort](./InsertionSort/)
 - [Merge Sort](./MergeSort/)
 - [Recursive Reduce](./RecursiveReduce/)
+- [Customer Function Pointer](./CustomerFunctionPointer/)
 
 ## Final Project
