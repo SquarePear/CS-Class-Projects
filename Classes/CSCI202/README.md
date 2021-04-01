@@ -16,5 +16,6 @@
 - [Merge Sort](./MergeSort/)
 - [Recursive Reduce](./RecursiveReduce/)
 - [Customer Function Pointer](./CustomerFunctionPointer/)
+- [Customer Binary Tree](./CustomerBinaryTree/)
 
 ## Final Project
