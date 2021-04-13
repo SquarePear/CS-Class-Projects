@@ -28,3 +28,6 @@ Temporary Items
 # Built binaries
 *.out*
 *.o
+
+# Personal configurations
+.vscode
