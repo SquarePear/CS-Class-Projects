@@ -29,5 +29,8 @@ Temporary Items
 *.out*
 *.o
 
+# Python
+__pycache__
+
 # Personal configurations
 .vscode
