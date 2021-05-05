@@ -1,4 +1,4 @@
-FLAGS ?= -std=c++2a -pedantic-errors
+FLAGS ?= -std=c++20 -pedantic-errors
 
 all: server.out client.out
 

@@ -1,6 +1,6 @@
 TARGET_EXEC ?= a.out
 
-FLAGS ?= -std=c++2a -pedantic-errors
+FLAGS ?= -std=c++20 -pedantic-errors
 
 $(TARGET_EXEC): main.cpp 
 	g++ $(FLAGS) $^ -o $@
