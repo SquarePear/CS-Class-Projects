@@ -1,0 +1,35 @@
+Jeffrey
+Harmon
+Jeffrey Harmon
+Jeffrey abcde Harmon
+
+127.0.0.1
+172.21.0.2
+100.255.000.001
+256.255.255.255
+
+someone@domain.tld
+noone.tld@domain
+someone@ivytech.edu
+someone42@ivytech.edu
+@.
+
+(333) 333-4444
+333-333-4444
+4444-333-4444
+
+317-333-4444
+765 333-4444
+219-333-4444
+574 333-4444
+260-333-4444
+463 333-4444
+930-333-4444
+812 333-4444
+
+CSCI 202
+SDEV220
+CSIA 105
+ITSP101
+COMM 101
+MATH212
