@@ -71,6 +71,17 @@ unsigned short Library::viewsOfBook(unsigned long long ISBN) {
   return this->viewsByBook.count(ISBN);
 }
 
+std::vector<Book const *> Library::getBooks() {
+  return std::vector<Book const *>(this->books.begin(), this->books.end());
+}
+std::vector<Customer const *> Library::getCustomers() {
+  return std::vector<Customer const *>(this->customers.begin(),
+                                       this->customers.end());
+}
+std::vector<View const *> Library::getViews() {
+  return std::vector<View const *>(this->views.begin(), this->views.end());
+}
+
 // Methods
 void Library::addBook(unsigned long long ISBN, std::string name,
                       std::string author, unsigned short pages) {

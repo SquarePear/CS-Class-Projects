@@ -2,7 +2,7 @@
  *  Program name: Final Project - Library
  *  Author: Jeffrey Harmon
  *  Date created: Apr. 28, 2021
- *  Date last updated: May 5, 2021
+ *  Date last updated: May 12, 2021
  *  Purpose: Perform and manage common functions of a library
  */
 
@@ -18,6 +18,9 @@ using namespace std;
 void importBooks(Library *library, string path = "data/books.csv");
 void importCustomers(Library *library, string path = "data/customers.csv");
 void importViews(Library *library, string path = "data/views.csv");
+void exportBooks(Library *library, string path = "data/books.csv");
+void exportCustomers(Library *library, string path = "data/customers.csv");
+void exportViews(Library *library, string path = "data/views.csv");
 
 int main() {
   Library library("IvyBooks");
@@ -32,7 +35,9 @@ int main() {
 
   // TODO: Menu for control
 
-  // TODO: Save to file
+  exportBooks(&library);
+  exportCustomers(&library);
+  exportViews(&library);
 
   return 0;
 }
@@ -59,6 +64,8 @@ void importBooks(Library *library, string path) {
 
     library->addBook(ISBN, name, author, pages);
   }
+
+  file.close();
 }
 
 void importCustomers(Library *library, string path) {
@@ -79,6 +86,8 @@ void importCustomers(Library *library, string path) {
 
     library->addCustomer(ID, name);
   }
+
+  file.close();
 }
 
 void importViews(Library *library, string path) {
@@ -98,4 +107,55 @@ void importViews(Library *library, string path) {
 
     library->addView(ISBN, ID, timestamp);
   }
+
+  file.close();
+}
+
+void exportBooks(Library *library, string path) {
+  ofstream file(path);
+  file << "ISBN,name,author,pages" << endl;
+
+  auto books = library->getBooks();
+
+  for (Book const *book : books) {
+    file << book->getISBN() << "," << book->getName() << ","
+         << book->getAuthor() << "," << book->getPages();
+
+    if (book != *--books.end())
+      file << endl;
+  }
+
+  file.close();
+}
+
+void exportCustomers(Library *library, string path) {
+  ofstream file(path);
+  file << "ID,name" << endl;
+
+  auto customers = library->getCustomers();
+
+  for (Customer const *customer : customers) {
+    file << customer->getID() << "," << customer->getName();
+
+    if (customer != *--customers.end())
+      file << endl;
+  }
+
+  file.close();
+}
+
+void exportViews(Library *library, string path) {
+  ofstream file(path);
+  file << "ISBN,ID,timestamp" << endl;
+
+  auto views = library->getViews();
+
+  for (View const *view : views) {
+    file << get<0>(*view) << "," << get<1>(*view) << "," << get<2>(*view);
+
+    if (view != *--views.end())
+      file << endl;
+  }
+
+  file.close();
 }

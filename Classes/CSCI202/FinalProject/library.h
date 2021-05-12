@@ -42,6 +42,10 @@ public:
 
   unsigned short viewsOfBook(unsigned long long ISBN);
 
+  std::vector<Book const *> getBooks();
+  std::vector<Customer const *> getCustomers();
+  std::vector<View const *> getViews();
+
   // Methods
   void addBook(unsigned long long ISBN, std::string name, std::string author,
                unsigned short pages);
