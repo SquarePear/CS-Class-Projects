@@ -15,12 +15,41 @@ Book *Library::getBookByName(std::string name) {
   return this->booksByName[name];
 }
 
+std::set<Book const *> Library::getBooksByCustomerID(unsigned short ID) {
+  std::set<Book const *> books;
+
+  for (auto itr = this->viewsByCustomer.find(ID);
+       itr != this->viewsByCustomer.end(); itr++) {
+    if (itr->first != ID)
+      break;
+
+    books.insert(this->getBookByISBN(std::get<0>(*itr->second)));
+  }
+
+  return books;
+}
+
 Customer *Library::getCustomerByID(unsigned short ID) {
   return this->customersByID[ID];
 }
 
 Customer *Library::getCustomerByName(std::string name) {
   return this->customersByName[name];
+}
+
+std::set<Customer const *>
+Library::getCustomersByBookISBN(unsigned long long ISBN) {
+  std::set<Customer const *> customers;
+
+  for (auto itr = this->viewsByBook.find(ISBN); itr != this->viewsByBook.end();
+       itr++) {
+    if (itr->first != ISBN)
+      break;
+
+    customers.insert(this->getCustomerByID(std::get<1>(*itr->second)));
+  }
+
+  return customers;
 }
 
 std::queue<Book *> Library::getMostViewedBooks(unsigned short count) {
@@ -109,7 +138,7 @@ void Library::addCustomer(unsigned short ID, std::string name) {
 }
 
 void Library::addView(unsigned long long ISBN, unsigned short ID,
-                      unsigned long timestamp) {
+                      unsigned long long timestamp) {
   View *view = new View(ISBN, ID, timestamp);
 
   this->views.push_back(view);

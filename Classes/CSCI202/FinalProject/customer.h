@@ -20,6 +20,9 @@ public:
   // Overrides
   bool operator<(const Customer &) const;
 
+  // Statics
+  static bool isValidID(unsigned short);
+
   // Constructors
   Customer(unsigned short ID, std::string name);
 };

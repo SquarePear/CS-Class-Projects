@@ -8,7 +8,7 @@
 #include <unordered_map>
 #include <vector>
 
-typedef std::tuple<unsigned long long, unsigned short, unsigned long> View;
+typedef std::tuple<unsigned long long, unsigned short, unsigned long long> View;
 
 class Library {
 private:
@@ -34,8 +34,11 @@ public:
 
   Book *getBookByISBN(unsigned long long ISBN);
   Book *getBookByName(std::string name);
+  std::set<Book const *> getBooksByCustomerID(unsigned short ID);
+
   Customer *getCustomerByID(unsigned short ID);
   Customer *getCustomerByName(std::string name);
+  std::set<Customer const *> getCustomersByBookISBN(unsigned long long ISBN);
 
   std::queue<Book *> getMostViewedBooks(unsigned short count);
   std::queue<Book *> getLeastViewedBooks(unsigned short count);
@@ -51,7 +54,7 @@ public:
                unsigned short pages);
   void addCustomer(unsigned short ID, std::string name);
   void addView(unsigned long long ISBN, unsigned short ID,
-               unsigned long timestamp);
+               unsigned long long timestamp);
   std::string toString() const;
 
   // Constructors

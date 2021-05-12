@@ -17,11 +17,16 @@ std::string Book::toString() const {
 // Overrides
 bool Book::operator<(const Book &o) const { return this->ISBN < o.getISBN(); };
 
+// Statics
+bool Book::isValidISBN(unsigned long long ISBN) {
+  return std::trunc(std::log10(ISBN)) + 1 == 13;
+}
+
 // Constructors
 Book::Book(unsigned long long ISBN, std::string name, std::string author,
            unsigned short pages)
     : name(name), author(author), pages(pages) {
-  if (std::trunc(std::log10(ISBN)) + 1 != 13)
+  if (!isValidISBN(ISBN))
     throw std::invalid_argument("ISBN must be 13 digits!");
 
   this->ISBN = ISBN;

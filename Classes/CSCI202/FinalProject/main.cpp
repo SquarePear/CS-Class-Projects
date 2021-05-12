@@ -6,7 +6,10 @@
  *  Purpose: Perform and manage common functions of a library
  */
 
+#include "book.h"
+#include "customer.h"
 #include "library.h"
+#include "menu.h"
 #include <fstream>
 #include <iostream>
 #include <map>
@@ -24,6 +27,7 @@ void exportViews(Library *library, string path = "data/views.csv");
 
 int main() {
   Library library("IvyBooks");
+  Menu menu(&library);
 
   // Import data from files
   importBooks(&library);
@@ -34,6 +38,8 @@ int main() {
   cout << endl;
 
   // TODO: Menu for control
+  while (menu.run()) {
+  }
 
   exportBooks(&library);
   exportCustomers(&library);
@@ -101,7 +107,7 @@ void importViews(Library *library, string path) {
     char comma;
     unsigned long long ISBN;
     unsigned short ID;
-    unsigned long timestamp;
+    unsigned long long timestamp;
 
     file >> ISBN >> comma >> ID >> comma >> timestamp;
 

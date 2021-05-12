@@ -24,6 +24,9 @@ public:
   // Overrides
   bool operator<(const Book &) const;
 
+  // Statics
+  static bool isValidISBN(unsigned long long);
+
   // Constructors
   Book(unsigned long long ISBN, std::string name, std::string author,
        unsigned short pages);
