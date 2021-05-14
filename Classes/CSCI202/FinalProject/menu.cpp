@@ -7,6 +7,7 @@ using namespace std;
 void printMostViewed(Library *library) {
   auto books = library->getMostViewedBooks(10);
 
+  // Print books
   while (!books.empty()) {
     cout << books.front()->toString() << endl;
 
@@ -17,6 +18,7 @@ void printMostViewed(Library *library) {
 void printLeastViewed(Library *library) {
   auto books = library->getLeastViewedBooks(10);
 
+  // Print books
   while (!books.empty()) {
     cout << books.front()->toString() << endl;
 
@@ -33,9 +35,11 @@ void printBookViewCount(Library *library) {
 
   Book *book = library->getBookByISBN(ISBN);
 
+  // Exit if book doesn't exist
   if (book == nullptr)
     throw runtime_error("Book not found!");
 
+  // Print customers who have viewed this book
   for (auto customer : library->getCustomersByBookISBN(ISBN))
     cout << customer->toString() << endl;
 }
@@ -49,19 +53,23 @@ void printCustomerViews(Library *library) {
 
   Customer *customer = library->getCustomerByID(ID);
 
+  // Exit if customer doesn't exist
   if (customer == nullptr)
     throw runtime_error("Customer not found!");
 
+  // Print all books customer has viewed
   for (auto book : library->getBooksByCustomerID(ID))
     cout << book->toString() << endl;
 }
 
 void printCustomers(Library *library) {
+  // Print all customers
   for (auto customer : library->getCustomers())
     cout << customer->toString() << endl;
 }
 
 void printBooks(Library *library) {
+  // Print all books
   for (auto book : library->getBooks())
     cout << book->toString() << endl;
 }
@@ -81,6 +89,7 @@ void addCustomer(Library *library) {
   cout << "Name: ";
   getline(cin, name);
 
+  // Add customer
   library->addCustomer(ID, name);
 }
 
@@ -107,6 +116,7 @@ void addBook(Library *library) {
   if (!(cin >> pages))
     throw runtime_error("Invalid page count!");
 
+  // Add book
   library->addBook(ISBN, name, author, pages);
 }
 
@@ -131,9 +141,11 @@ void addView(Library *library) {
                   chrono::system_clock::now().time_since_epoch())
                   .count();
 
+  // Add view
   library->addView(ISBN, ID, timestamp);
 }
 
+// Methods
 bool Menu::run() {
   try {
     cout << "What do you want to do?" << endl;
@@ -158,6 +170,7 @@ bool Menu::run() {
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cout << endl;
 
+    // Run function based on choice
     switch (choice) {
     case 1:
       printMostViewed(this->library);

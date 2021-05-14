@@ -34,13 +34,15 @@ int main() {
   importCustomers(&library);
   importViews(&library);
 
+  // Print header
   cout << "Welcome to " << library.getName() << endl;
   cout << endl;
 
-  // TODO: Menu for control
+  // Run menu until exited
   while (menu.run()) {
   }
 
+  // Save data back to files
   exportBooks(&library);
   exportCustomers(&library);
   exportViews(&library);
